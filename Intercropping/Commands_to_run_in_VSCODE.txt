@@ -1,0 +1,5 @@
+pip install pandas scikit-learn joblib openpyxl flask
+
+python train_model.py
+
+python app.py

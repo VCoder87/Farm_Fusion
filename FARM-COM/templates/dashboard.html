@@ -1,0 +1,176 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard - FarmCom{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-12">
+            <h2>Welcome, {{ current_user.first_name }}!</h2>
+            <p class="lead">Manage your farming business from here</p>
+        </div>
+    </div>
+    
+    <!-- Quick Stats -->
+    <div class="row mb-4">
+        <div class="col-md-3">
+            <div class="card bg-primary text-white">
+                <div class="card-body">
+                    <h5 class="card-title">My Equipment</h5>
+                    <h2>{{ equipment_count }}</h2>
+                    <p class="card-text">Items listed</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card bg-success text-white">
+                <div class="card-body">
+                    <h5 class="card-title">My Products</h5>
+                    <h2>{{ products_count }}</h2>
+                    <p class="card-text">Items for sale</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card bg-warning text-white">
+                <div class="card-body">
+                    <h5 class="card-title">Active Rentals</h5>
+                    <h2>{{ active_rentals }}</h2>
+                    <p class="card-text">Equipment rented</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card bg-info text-white">
+                <div class="card-body">
+                    <h5 class="card-title">Recent Orders</h5>
+                    <h2>{{ recent_orders }}</h2>
+                    <p class="card-text">This month</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Quick Actions -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <h4>Quick Actions</h4>
+        </div>
+        <div class="col-md-6 col-lg-3 mb-3">
+            <div class="card text-center">
+                <div class="card-body">
+                    <i class="fas fa-tractor fa-3x text-primary mb-3"></i>
+                    <h5 class="card-title">List Equipment</h5>
+                    <p class="card-text">Rent out your farming equipment</p>
+                    <a href="{{ url_for('rent_equipment') }}" class="btn btn-primary">Add Equipment</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-3 mb-3">
+            <div class="card text-center">
+                <div class="card-body">
+                    <i class="fas fa-seedling fa-3x text-success mb-3"></i>
+                    <h5 class="card-title">Sell Products</h5>
+                    <p class="card-text">List your agricultural products</p>
+                    <a href="{{ url_for('marketplace') }}" class="btn btn-success">Add Product</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-3 mb-3">
+            <div class="card text-center">
+                <div class="card-body">
+                    <i class="fas fa-search fa-3x text-info mb-3"></i>
+                    <h5 class="card-title">Browse Equipment</h5>
+                    <p class="card-text">Find equipment to rent</p>
+                    <a href="{{ url_for('rent_listings') }}" class="btn btn-info">Browse</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-3 mb-3">
+            <div class="card text-center">
+                <div class="card-body">
+                    <i class="fas fa-shopping-cart fa-3x text-warning mb-3"></i>
+                    <h5 class="card-title">Buy Products</h5>
+                    <p class="card-text">Purchase agricultural products</p>
+                    <a href="{{ url_for('buy_items') }}" class="btn btn-warning">Shop Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Recent Activity -->
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h5>My Equipment</h5>
+                </div>
+                <div class="card-body">
+                    {% if my_equipment %}
+                        <div class="table-responsive">
+                            <table class="table table-sm">
+                                <thead>
+                                    <tr>
+                                        <th>Equipment</th>
+                                        <th>Rate/Day</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for equipment in my_equipment %}
+                                    <tr>
+                                        <td>{{ equipment.name }}</td>
+                                        <td>₹{{ equipment.daily_rate }}</td>
+                                        <td>
+                                            <span class="badge bg-{{ 'success' if equipment.availability_status == 'available' else 'warning' }}">
+                                                {{ equipment.availability_status.title() }}
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    {% else %}
+                        <p class="text-muted">No equipment listed yet.</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h5>My Products</h5>
+                </div>
+                <div class="card-body">
+                    {% if my_products %}
+                        <div class="table-responsive">
+                            <table class="table table-sm">
+                                <thead>
+                                    <tr>
+                                        <th>Product</th>
+                                        <th>Price</th>
+                                        <th>Available</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for product in my_products %}
+                                    <tr>
+                                        <td>{{ product.name }}</td>
+                                        <td>₹{{ product.price }}/{{ product.unit }}</td>
+                                        <td>{{ product.quantity_available }} {{ product.unit }}</td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    {% else %}
+                        <p class="text-muted">No products listed yet.</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <div class="jumbotron bg-light p-5 rounded">
+            <h1 class="display-4">Welcome to FarmCom</h1>
+            <p class="lead">Your one-stop platform for agricultural equipment rental and marketplace.</p>
+            <hr class="my-4">
+            <p>Connect with fellow farmers, rent equipment, and buy agricultural supplies.</p>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-5">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">🚜 Equipment Rental</h5>
+                <p class="card-text">Rent farm equipment from other farmers in your community. Save money and access tools when you need them.</p>
+                <a href="{{ url_for('browse_equipment') }}" class="btn btn-success">Browse Equipment</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">🛒 Marketplace</h5>
+                <p class="card-text">Buy and sell agricultural supplies including seeds, fertilizers, pesticides, and tools.</p>
+                <a href="{{ url_for('marketplace') }}" class="btn btn-primary">Visit Marketplace</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,206 @@
+{% extends "base.html" %}
+
+{% block title %}Sell Products - FarmCom{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-12">
+            <h2><i class="fas fa-store me-2"></i>List Your Products for Sale</h2>
+            <p class="lead">Share your agricultural products with buyers in your area</p>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card shadow-sm">
+                <div class="card-header bg-success text-white">
+                    <h5 class="mb-0"><i class="fas fa-plus-circle me-2"></i>Add New Product</h5>
+                </div>
+                <div class="card-body">
+                    {% with messages = get_flashed_messages(with_categories=true) %}
+                        {% if messages %}
+                            {% for category, message in messages %}
+                                <div class="alert alert-{{ 'danger' if category == 'error' else category }} alert-dismissible fade show" role="alert">
+                                    {{ message }}
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %}
+                    
+                    <form action="{{ url_for('add_item') }}" method="POST" enctype="multipart/form-data">
+                        <div class="mb-3">
+                            <label for="item_name" class="form-label">Product Name *</label>
+                            <input type="text" class="form-control" id="item_name" name="item_name" 
+                                   placeholder="e.g., Organic Tomatoes, Basmati Rice" required>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="category" class="form-label">Category *</label>
+                            <select class="form-select" id="category" name="category" required>
+                                <option value="">Select Category</option>
+                                <option value="Grains">Grains & Cereals</option>
+                                <option value="Vegetables">Vegetables</option>
+                                <option value="Fruits">Fruits</option>
+                                <option value="Dairy">Dairy Products</option>
+                                <option value="Spices">Spices & Herbs</option>
+                                <option value="Seeds">Seeds & Saplings</option>
+                                <option value="Fertilizers">Fertilizers & Manure</option>
+                                <option value="Pulses">Pulses & Legumes</option>
+                                <option value="Oil">Oils & Ghee</option>
+                                <option value="Honey">Honey & Bee Products</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="description" class="form-label">Description</label>
+                            <textarea class="form-control" id="description" name="description" rows="4" 
+                                      placeholder="Describe your product: quality, freshness, organic certification, harvest date, etc."></textarea>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <label for="price" class="form-label">Price per Unit (₹) *</label>
+                                    <input type="number" class="form-control" id="price" name="price" 
+                                           step="0.01" min="0" placeholder="0.00" required>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <label for="unit" class="form-label">Unit *</label>
+                                    <select class="form-select" id="unit" name="unit" required>
+                                        <option value="">Select Unit</option>
+                                        <option value="kg">Kilogram (kg)</option>
+                                        <option value="grams">Grams</option>
+                                        <option value="liters">Liters</option>
+                                        <option value="pieces">Pieces</option>
+                                        <option value="dozens">Dozens</option>
+                                        <option value="bags">Bags (specify weight)</option>
+                                        <option value="boxes">Boxes</option>
+                                        <option value="quintal">Quintal (100kg)</option>
+                                        <option value="tons">Tons</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <label for="quantity" class="form-label">Available Quantity *</label>
+                                    <input type="number" class="form-control" id="quantity" name="quantity" 
+                                           min="1" placeholder="1" required>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="location" class="form-label">Location *</label>
+                            <input type="text" class="form-control" id="location" name="location" 
+                                   placeholder="City, State (e.g., Kochi, Kerala)" required>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="image" class="form-label">Product Image</label>
+                            <input type="file" class="form-control" id="image" name="image" accept="image/*">
+                            <div class="form-text">
+                                <i class="fas fa-info-circle me-1"></i>
+                                Upload a clear, high-quality image of your product (JPG, PNG, GIF)
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="1" id="organic" name="organic">
+                                <label class="form-check-label" for="organic">
+                                    <i class="fas fa-leaf text-success me-1"></i>This is an organic product
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                            <a href="{{ url_for('dashboard') }}" class="btn btn-secondary me-md-2">
+                                <i class="fas fa-times me-1"></i>Cancel
+                            </a>
+                            <button type="submit" class="btn btn-success">
+                                <i class="fas fa-plus me-1"></i>List Product
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4">
+            <div class="card shadow-sm">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0"><i class="fas fa-lightbulb me-2"></i>Selling Tips</h5>
+                </div>
+                <div class="card-body">
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Use high-quality, well-lit photos</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Write detailed, honest descriptions</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Research local market prices</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Mention organic/quality certifications</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Include harvest/production date</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Specify storage and handling instructions</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="card mt-3 shadow-sm">
+                <div class="card-header bg-info text-white">
+                    <h5 class="mb-0"><i class="fas fa-tags me-2"></i>Popular Categories</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-12">
+                            <span class="badge bg-primary me-1 mb-2">Grains</span>
+                            <span class="badge bg-success me-1 mb-2">Vegetables</span>
+                            <span class="badge bg-info me-1 mb-2">Fruits</span>
+                            <span class="badge bg-warning me-1 mb-2">Dairy</span>
+                            <span class="badge bg-danger me-1 mb-2">Spices</span>
+                            <span class="badge bg-secondary me-1 mb-2">Seeds</span>
+                            <span class="badge bg-dark me-1 mb-2">Pulses</span>
+                            <span class="badge bg-light text-dark me-1 mb-2">Oil</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card mt-3 shadow-sm">
+                <div class="card-header bg-warning text-dark">
+                    <h5 class="mb-0"><i class="fas fa-rupee-sign me-2"></i>Pricing Guidelines</h5>
+                </div>
+                <div class="card-body">
+                    <p class="small">Research local market rates and set competitive prices. Consider:</p>
+                    <ul class="small">
+                        <li>Product quality and freshness</li>
+                        <li>Organic vs conventional classification</li>
+                        <li>Seasonal availability and demand</li>
+                        <li>Local market competition</li>
+                        <li>Transportation and packaging costs</li>
+                        <li>Bulk purchase discounts</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="card mt-3 shadow-sm">
+                <div class="card-header bg-success text-white">
+                    <h5 class="mb-0"><i class="fas fa-shield-alt me-2"></i>Quality Assurance</h5>
+                </div>
+                <div class="card-body">
+                    <p class="small">Build trust with buyers by:</p>
+                    <ul class="small">
+                        <li>Providing accurate product information</li>
+                        <li>Offering quality guarantees</li>
+                        <li>Maintaining proper hygiene standards</li>
+                        <li>Responding promptly to inquiries</li>
+                        <li>Ensuring safe packaging and delivery</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

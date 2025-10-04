@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Farm Fusion</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        main {
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .mission, .team {
+            background: white;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            color: #333;
+        }
+
+        .mission h2, .team h2 {
+            color: #198754;
+            margin-bottom: 15px;
+        }
+
+        /* Hover Effect */
+        .mission:hover, .team:hover {
+            transform: translateY(-5px); /* Move the box up slightly */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Add a stronger shadow */
+        }
+        .team-member {
+            display: flex;
+            align-items: center;
+            margin: 20px 0;
+        }
+
+        .team-member img {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            margin-right: 20px;
+        }
+
+        .team-member h3 {
+            margin: 0;
+            color: #4CAF50;
+        }
+
+        .team-member p {
+            margin: 5px 0;
+            color: #666;
+        }
+
+        .btn-outline-success {
+            color: #198754;
+            border-color: #198754;
+        }
+        .btn-outline-success:hover {
+            color: #fff;
+            background-color: #198754;
+            border-color: #198754;
+        }
+        .btn-success {
+            background-color: #198754;
+            border-color: #198754;
+        }
+        .btn-success:hover {
+            background-color: #157347;
+            border-color: #146c43;
+        }
+    </style>
+</head>
+<body>
+    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+        <div class="col-md-3 mb-2 mb-md-0">
+            <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none">
+                <svg class="bi" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
+                <span class="fs-4">Farm Fusion</span>
+            </a>
+        </div>
+        <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+            <li><a href="new.html" class="nav-link px-2 text-success">Home</a></li>
+            <li><a href="#" class="nav-link px-2 text-success">Features</a></li>
+            <li><a href="#" class="nav-link px-2 text-success">FarmCom</a></li>
+            <li><a href="contact.html" class="nav-link px-2 text-success">Contact</a></li>
+            <li><a href="about.html" class="nav-link px-2 link-secondary">About</a></li>
+        </ul>
+        <div class="col-md-3 text-end">
+            <button type="button" class="btn btn-outline-success me-2">Login</button>
+            <button type="button" class="btn btn-success">Sign-up</button>
+        </div>
+    </header>
+
+    <div class="container">
+        <section class="mission">
+            <h2>Our Mission</h2>
+            <p>
+                Farm Fusion is an innovative and creative platform that utilizes multiple machine learning algorithms to predict crop yields at the earliest stages, even during the mid-growing season. By analyzing both image-based and data-driven inputs, it provides accurate yield forecasts and detects potential losses in real-time. To address these challenges, Farm Fusion suggests smart intercropping strategies, helping farmers maximize productivity and sustainability. This forward-thinking solution harnesses the power of machine learning to revolutionize agriculture, offering practical and actionable insights for a thriving farming future.
+            </p>
+        </section>
+    </div>
+
+    <div class="container">
+        <section class="team">
+            <h2>Our Team</h2>
+            <div class="team-member">
+                <img src="https://via.placeholder.com/100" alt="Team Member 1">
+                <div>
+                    <h3>T Vineesh</h3>
+                    <p>FrontEnd Developer</p>
+                    <p>Vineesh designs intuitive and user-friendly interfaces to ensure a seamless experience for our users.</p>
+                </div>
+            </div>
+            <div class="team-member">
+                <img src="https://via.placeholder.com/100" alt="Team Member 2">
+                <div>
+                    <h3>Menon Sreeraj Raghunath</h3>
+                    <p>BackEnd Developer</p>
+                    <p>Sreeraj specializes in building robust and scalable backend systems to ensure seamless data processing and integration for Farm Fusion</p>
+                </div>
+            </div>
+            <div class="team-member">
+                <img src="https://via.placeholder.com/100" alt="Team Member 3">
+                <div>
+                    <h3>Thomas Steephan Padamadan</h3>
+                    <p>BackEnd Developer</p>
+                    <p>Thomas ensures the reliability and efficiency of Farm Fusion's backend infrastructure, enabling smooth data flow and real-time insights for farmers.</p>
+                </div>
+            </div>
+            <div class="team-member">
+                <img src="https://via.placeholder.com/100" alt="Team Member 4">
+                <div>
+                    <h3>Neeraj P</h3>
+                    <p>BackEnd Developer</p>
+                    <p>Neeraj crafts clear and user-friendly documentation to help farmers and developers make the most of Farm Fusion's innovative tools.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+        <div class="col-md-4 d-flex align-items-center">
+            <a href="/" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1" aria-label="Bootstrap">
+                <svg class="bi" width="30" height="24" aria-hidden="true"><use xlink:href="#bootstrap"></use></svg>
+            </a>
+            <span class="mb-3 mb-md-0 text-body-secondary">© 2025 Farm Fusion, Inc</span>
+        </div>
+        <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+            <li class="ms-3"><a class="text-body-secondary" href="#" aria-label="Instagram"><svg class="bi" width="24" height="24" aria-hidden="true"><use xlink:href="#instagram"></use></svg></a></li>
+            <li class="ms-3"><a class="text-body-secondary" href="#" aria-label="Facebook"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"></use></svg></a></li>
+        </ul>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLlhNTkCLuTusPj697FH4R/5mcr" crossorigin="anonymous"></script>
+</body>
+</html>

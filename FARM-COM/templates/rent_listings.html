@@ -1,0 +1,222 @@
+{% extends "base.html" %}
+
+{% block title %}Equipment Rentals - FarmCom{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-12">
+            <h2>Equipment Available for Rent</h2>
+            <p class="lead">Find the perfect equipment for your farming needs</p>
+        </div>
+    </div>
+    
+    <!-- Search and Filter -->
+    <div class="row mb-4">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body">
+                    <form method="GET" class="row g-3">
+                        <div class="col-md-4">
+                            <input type="text" class="form-control" name="search" placeholder="Search equipment..." value="{{ request.args.get('search', '') }}">
+                        </div>
+                        <div class="col-md-3">
+                            <select class="form-select" name="category">
+                                <option value="">All Categories</option>
+                                <option value="Tractors" {% if request.args.get('category') == 'Tractors' %}selected{% endif %}>Tractors</option>
+                                <option value="Harvesters" {% if request.args.get('category') == 'Harvesters' %}selected{% endif %}>Harvesters</option>
+                                <option value="Tillers" {% if request.args.get('category') == 'Tillers' %}selected{% endif %}>Tillers</option>
+                                <option value="Sprayers" {% if request.args.get('category') == 'Sprayers' %}selected{% endif %}>Sprayers</option>
+                                <option value="Seeders" {% if request.args.get('category') == 'Seeders' %}selected{% endif %}>Seeders</option>
+                                <option value="Threshers" {% if request.args.get('category') == 'Threshers' %}selected{% endif %}>Threshers</option>
+                                <option value="Pumps" {% if request.args.get('category') == 'Pumps' %}selected{% endif %}>Water Pumps</option>
+                                <option value="Other" {% if request.args.get('category') == 'Other' %}selected{% endif %}>Other</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <input type="text" class="form-control" name="location" placeholder="Location..." value="{{ request.args.get('location', '') }}">
+                        </div>
+                        <div class="col-md-2">
+                            <button type="submit" class="btn btn-primary w-100">Search</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body text-center">
+                    <!-- FIXED: Changed from equipment to listings -->
+                    <h5>{{ listings|length }} Equipment Available</h5>
+                    <p class="text-muted">Ready to rent</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Equipment Grid -->
+    <div class="row">
+        <!-- FIXED: Changed from equipment to listings -->
+        {% if listings %}
+            {% for item in listings %}
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card h-100">
+                    <!-- FIXED: Updated image path and field access -->
+                    {% if item[8] %}
+                        <img src="{{ url_for('static', filename='uploads/' ~ item[8]) }}" class="card-img-top" alt="{{ item[1] }}" style="height: 200px; object-fit: cover;">
+                    {% else %}
+                        <div class="card-img-top bg-light d-flex align-items-center justify-content-center" style="height: 200px;">
+                            <i class="fas fa-tractor fa-3x text-muted"></i>
+                        </div>
+                    {% endif %}
+                    <div class="card-body">
+                        <!-- FIXED: Access tuple elements by index -->
+                        <h5 class="card-title">{{ item[1] }}</h5>  <!-- equipment_name -->
+                        <p class="card-text">{{ item[2][:100] }}{% if item[2]|length > 100 %}...{% endif %}</p>  <!-- description -->
+                        <div class="mb-2">
+                            <span class="badge bg-secondary">{{ item[3] }}</span>  <!-- category -->
+                            <span class="badge bg-{% if item[11] == 'available' %}success{% else %}warning{% endif %}">
+                                {{ item[11].title() }}  <!-- availability_status -->
+                            </span>
+                        </div>
+                        <p class="card-text">
+                            <small class="text-muted">
+                                <i class="fas fa-map-marker-alt"></i> {{ item[7] }}  <!-- location -->
+                            </small>
+                        </p>
+                        <p class="card-text">
+                            <small class="text-muted">
+                                Owner: {{ item[9] }}  <!-- owner full_name -->
+                                {% if item[10] %}| Phone: {{ item[10] }}{% endif %}  <!-- owner phone -->
+                            </small>
+                        </p>
+                    </div>
+                    <div class="card-footer">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h6 class="mb-0 text-primary">₹{{ item[4] }}/day</h6>  <!-- rental_price_per_day -->
+                                {% if item[5] and item[5] > 0 %}
+                                    <small class="text-muted">₹{{ item[5] }}/week</small>  <!-- rental_price_per_week -->
+                                {% endif %}
+                            </div>
+                            {% if item[11] == 'available' %}  <!-- availability_status -->
+                                <button class="btn btn-primary btn-sm" onclick="rentEquipment({{ item[0] }}, {{ item[4] }})">
+                                    Rent Now
+                                </button>
+                            {% else %}
+                                <button class="btn btn-secondary btn-sm" disabled>
+                                    Not Available
+                                </button>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        {% else %}
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <i class="fas fa-search fa-3x text-muted mb-3"></i>
+                        <h5>No Equipment Found</h5>
+                        <p class="text-muted">Try adjusting your search criteria or <a href="{{ url_for('rent_equipment') }}">list your own equipment</a></p>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</div>
+
+<!-- Rent Equipment Modal -->
+<div class="modal fade" id="rentModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Rent Equipment</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form id="rentForm" method="POST">
+                    <input type="hidden" id="equipmentId" name="equipment_id">
+                    <div class="mb-3">
+                        <label for="startDate" class="form-label">Start Date</label>
+                        <input type="date" class="form-control" id="startDate" name="start_date" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="endDate" class="form-label">End Date</label>
+                        <input type="date" class="form-control" id="endDate" name="end_date" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Total Cost</label>
+                        <p id="totalCost" class="h5 text-primary">₹0</p>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary" onclick="submitRental()">Confirm Rental</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+let currentDailyRate = 0;
+
+function rentEquipment(equipmentId, dailyRate) {
+    document.getElementById('equipmentId').value = equipmentId;
+    currentDailyRate = dailyRate;
+    new bootstrap.Modal(document.getElementById('rentModal')).show();
+}
+
+function calculateTotal() {
+    const startDate = document.getElementById('startDate').value;
+    const endDate = document.getElementById('endDate').value;
+    
+    if (startDate && endDate) {
+        const start = new Date(startDate);
+        const end = new Date(endDate);
+        const days = Math.ceil((end - start) / (1000 * 60 * 60 * 24)) + 1; // Include both start and end dates
+        
+        if (days > 0) {
+            const total = days * currentDailyRate;
+            document.getElementById('totalCost').textContent = `₹${total} (${days} days)`;
+        }
+    }
+}
+
+document.getElementById('startDate').addEventListener('change', calculateTotal);
+document.getElementById('endDate').addEventListener('change', calculateTotal);
+
+function submitRental() {
+    const equipmentId = document.getElementById('equipmentId').value;
+    const startDate = document.getElementById('startDate').value;
+    const endDate = document.getElementById('endDate').value;
+    
+    if (!startDate || !endDate) {
+        alert('Please select both start and end dates');
+        return;
+    }
+    
+    // Create form and submit
+    const form = document.createElement('form');
+    form.method = 'POST';
+    form.action = `/rent/request/${equipmentId}`;
+    
+    const startInput = document.createElement('input');
+    startInput.type = 'hidden';
+    startInput.name = 'start_date';
+    startInput.value = startDate;
+    
+    const endInput = document.createElement('input');
+    endInput.type = 'hidden';
+    endInput.name = 'end_date';
+    endInput.value = endDate;
+    
+    form.appendChild(startInput);
+    form.appendChild(endInput);
+    document.body.appendChild(form);
+    form.submit();
+}
+</script>
+{% endblock %}
