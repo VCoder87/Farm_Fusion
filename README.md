@@ -1,4 +1,7 @@
 <!-- Banner Section -->
+<p align="center">
+  <img src="banner.png" alt="Farm Fusion Banner" width="100%" />
+</p>
 
 <h1 align="center">🌾 Farm Fusion – Your Smart Agricultural Assistant 🌱</h1>
 
@@ -18,9 +21,9 @@
 
 ## 🌍 Overview
 
-**Farm Fusion** is an all-in-one **AI-driven agricultural web application** designed to help farmers make data-backed decisions for improved productivity and sustainable farming.
+**Farm Fusion** is an all-in-one **AI-driven agricultural web application** that helps farmers make data-backed decisions to improve productivity and sustainability.
 
-It brings together **Machine Learning**, **Flask**, and **AI Chat Systems** into one cohesive platform — enabling crop recommendation, yield prediction, intercropping advice, chatbot assistance, and community collaboration.
+It combines **Machine Learning**, **Flask-based backend systems**, and **interactive web interfaces** to provide multiple agricultural insights — from crop selection to yield forecasting and community collaboration.
 
 ---
 
@@ -36,13 +39,13 @@ Predicts expected crop yield using the **Random Forest algorithm** for accurate 
 
 ### 🌿 3. Intercropping Recommendation  
 Suggests optimal crop combinations for sustainable and profitable farming.  
-**Dataset:** *AI-generated synthetic data* (created for project purposes)
+**Dataset:** *AI-generated synthetic data* (created for project demonstration)
 
 ### 💬 4. FarmChat (Chatbot)  
 An interactive chatbot that provides real-time agricultural assistance to farmers.
 
 ### 👨‍🌾 5. FarmCom (Farmer Community)  
-A community-driven forum for farmers to exchange ideas and share experiences.
+A dedicated community where farmers can share knowledge, experiences, and discuss cultivation methods.
 
 ---
 
@@ -52,15 +55,13 @@ A community-driven forum for farmers to exchange ideas and share experiences.
 |:--|:--|
 | **Frontend** | HTML, CSS, Bootstrap |
 | **Backend** | Flask |
-| **Machine Learning** | Random Forest, Scikit-learn, Pandas, NumPy |
+| **Machine Learning** | Random Forest, Pandas, NumPy |
 | **Database** | SQL |
-| **APIs** | Google Maps, OpenWeatherMap, WeatherStack |
-
 ---
 
 ## 💻 How to Run Each Module
 
-> ⚠️ Ensure you have **Python 3.7+** installed. For FarmChat, install **Node.js and npm**.
+> ⚠️ Ensure you have **Python 3.7+** installed. For FarmChat, you’ll need **Node.js and npm**.
 
 1️⃣  Crop Recommendation
 pip install -r requirements.txt
