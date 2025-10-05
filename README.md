@@ -1,29 +1,26 @@
-<!-- Banner Section -->
-<p align="center">
-  <img src="banner.png" alt="Farm Fusion Banner" width="100%" />
-</p>
+
 
 <h1 align="center">🌾 Farm Fusion – Your Smart Agricultural Assistant 🌱</h1>
 
 <p align="center">
-  <b>An AI-powered platform empowering farmers with intelligent crop insights, yield prediction, intercropping guidance, and more.</b>
+  <b>An AI-powered platform empowering farmers with intelligent crop insights, yield prediction, intercropping guidance, and community support.</b>
 </p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Python-3.7%2B-blue?logo=python" />
-  <img src="https://img.shields.io/badge/Django-Backend-green?logo=django" />
+  <img src="https://img.shields.io/badge/Flask-Backend-green?logo=flask" />
   <img src="https://img.shields.io/badge/Machine%20Learning-Random%20Forest-orange?logo=scikitlearn" />
   <img src="https://img.shields.io/badge/Frontend-HTML%2C%20CSS%2C%20Bootstrap-blueviolet?logo=html5" />
-  <img src="https://img.shields.io/badge/License-Open%20Source-yellow" />
+  <img src="https://img.shields.io/badge/Database-SQL-lightgrey?logo=sqlite" />
 </p>
 
 ---
 
 ## 🌍 Overview
 
-**Farm Fusion** is an all-in-one **AI-driven agricultural web application** that assists farmers in making data-backed decisions for better productivity and sustainable farming.
+**Farm Fusion** is an all-in-one **AI-driven agricultural web application** that helps farmers make data-backed decisions to improve productivity and sustainability.
 
-It integrates multiple modules into a single platform — blending **Machine Learning**, **Web Development**, and **AI Chat Systems** to enhance modern agriculture.
+It combines **Machine Learning**, **Flask-based backend systems**, and **interactive web interfaces** to provide multiple agricultural insights — from crop selection to yield forecasting and community collaboration.
 
 ---
 
@@ -38,14 +35,14 @@ Predicts expected crop yield using the **Random Forest algorithm** for accurate 
 **Dataset Source:** [Kaggle](https://www.kaggle.com/)
 
 ### 🌿 3. Intercropping Recommendation  
-Suggests optimal crop combinations for sustainable farming.  
-**Dataset:** *AI-generated synthetic data* (for academic and demonstration purposes)
+Suggests optimal crop combinations for sustainable and profitable farming.  
+**Dataset:** *AI-generated synthetic data* (created for project demonstration)
 
 ### 💬 4. FarmChat (Chatbot)  
-An interactive chatbot that assists farmers with queries and agricultural advice in real-time.
+An interactive chatbot that provides real-time agricultural assistance to farmers.
 
 ### 👨‍🌾 5. FarmCom (Farmer Community)  
-A community-driven forum for farmers to share knowledge, experiences, and discussions.
+A dedicated community where farmers can share knowledge, experiences, and discuss cultivation methods.
 
 ---
 
@@ -54,28 +51,18 @@ A community-driven forum for farmers to share knowledge, experiences, and discus
 | Layer | Technologies Used |
 |:--|:--|
 | **Frontend** | HTML, CSS, Bootstrap |
-| **Backend** | Django / Flask |
+| **Backend** | Flask |
 | **Machine Learning** | Random Forest, Scikit-learn, Pandas, NumPy |
+| **Database** | SQL |
 | **APIs** | Google Maps, OpenWeatherMap, WeatherStack |
-| **Database** | SQLite / MySQL |
-
----
-
-## 🧠 Datasets
-
-| Module | Source | Description |
-|:--|:--|:--|
-| Crop Recommendation | Kaggle | Crop–soil–climate dataset |
-| Crop Yield Prediction | Kaggle | Crop yield data by soil and weather |
-| Intercropping Recommendation | Synthetic | AI-generated dataset for testing |
 
 ---
 
 ## 💻 How to Run Each Module
 
-> ⚠️ **Before running any module**, ensure you have Python 3.7+ (and Node.js for FarmChat) installed.
+> ⚠️ Ensure you have **Python 3.7+** installed. For FarmChat, you’ll need **Node.js and npm**.
 
-### 1️⃣ Crop Recommendation
+### 🧩 Crop Recommendation
 ```bash
 pip install -r requirements.txt
 python main.py
