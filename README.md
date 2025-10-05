@@ -1,7 +1,4 @@
 <!-- Banner Section -->
-<p align="center">
-  <img src="banner.png" alt="Farm Fusion Banner" width="100%" />
-</p>
 
 <h1 align="center">🌾 Farm Fusion – Your Smart Agricultural Assistant 🌱</h1>
 
