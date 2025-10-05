@@ -63,7 +63,7 @@ A dedicated community where farmers can share knowledge, experiences, and discus
 
 > ⚠️ Ensure you have **Python 3.7+** installed. For FarmChat, you’ll need **Node.js and npm**.
 
-1️⃣  Crop Recommendation
+1️⃣  Crop Recommendation <br>
 pip install -r requirements.txt
 python main.py
 
