@@ -68,7 +68,7 @@ A dedicated community where farmers can share knowledge, experiences, and discus
      python main.py
 
 2️⃣ Crop Yield Prediction <br>
-    cd crop-yield-prediction <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;cd crop-yield-prediction <br>
     pip install -r requirements.txt <br>
     python loadandtest.py <br>
 
