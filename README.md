@@ -62,7 +62,44 @@ A community-driven forum for farmers to exchange ideas and share experiences.
 
 > ⚠️ Ensure you have **Python 3.7+** installed. For FarmChat, install **Node.js and npm**.
 
-### 🧩 Crop Recommendation
-```bash
+1️⃣  Crop Recommendation
 pip install -r requirements.txt
 python main.py
+
+2️⃣ Crop Yield Prediction
+cd crop-yield-prediction
+pip install -r requirements.txt
+python loadandtest.py
+
+3️⃣ Intercropping Recommendation
+cd intercropping-recommendation
+pip install -r requirements.txt
+python app.py
+
+4️⃣ FarmChat - AI Assistant
+cd farmchat
+npm install
+npm run dev
+
+5️⃣ FarmCom - Farmer Community
+cd farmcom
+pip install -r requirements.txt
+python app.py
+
+✨ **Key Features**
+
+- ✅ AI-based crop recommendation and yield prediction
+- ✅ Sustainable intercropping suggestions
+- ✅ Smart chatbot assistance for farmers
+- ✅ Farmer community for collaboration and idea sharing
+- ✅ Responsive and user-friendly interface
+
+👥 **Contributors**
+
+| Name                         | Role               | Description                                                                 |
+|-------------------------------|------------------|-----------------------------------------------------------------------------|
+| T Vineesh                     | Frontend Developer | Designs intuitive and user-friendly interfaces to ensure a seamless experience for users. |
+| Menon Sreeraj Raghunath       | Backend Developer  | Builds robust and scalable Flask-based backend systems ensuring smooth data processing and integration. |
+| Thomas Steephan Padamadan     | Backend Developer  | Ensures reliability and efficiency of backend infrastructure for real-time agricultural insights. |
+| Neeraj P                      | Backend Developer  | Crafts clear documentation to help both farmers and developers make the most of Farm Fusion’s features. |
+
