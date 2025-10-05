@@ -1,6 +1,5 @@
 <!-- Banner Section -->
 
-
 <h1 align="center">🌾 Farm Fusion – Your Smart Agricultural Assistant 🌱</h1>
 
 <p align="center">
@@ -9,19 +8,19 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/Python-3.7%2B-blue?logo=python" />
-  <img src="https://img.shields.io/badge/Django-Backend-green?logo=django" />
+  <img src="https://img.shields.io/badge/Flask-Backend-green?logo=flask" />
   <img src="https://img.shields.io/badge/Machine%20Learning-Random%20Forest-orange?logo=scikitlearn" />
   <img src="https://img.shields.io/badge/Frontend-HTML%2C%20CSS%2C%20Bootstrap-blueviolet?logo=html5" />
-  <img src="https://img.shields.io/badge/License-Open%20Source-yellow" />
+  <img src="https://img.shields.io/badge/Database-SQL-lightgrey?logo=sqlite" />
 </p>
 
 ---
 
 ## 🌍 Overview
 
-**Farm Fusion** is an all-in-one **AI-driven agricultural web application** that assists farmers in making data-backed decisions for better productivity and sustainable farming.
+**Farm Fusion** is an all-in-one **AI-driven agricultural web application** designed to help farmers make data-backed decisions for improved productivity and sustainable farming.
 
-It integrates multiple modules into a single platform — combining **Machine Learning**, **Web Technologies**, and **AI Chat Systems** to modernize agriculture.
+It brings together **Machine Learning**, **Flask**, and **AI Chat Systems** into one cohesive platform — enabling crop recommendation, yield prediction, intercropping advice, chatbot assistance, and community collaboration.
 
 ---
 
@@ -36,14 +35,14 @@ Predicts expected crop yield using the **Random Forest algorithm** for accurate 
 **Dataset Source:** [Kaggle](https://www.kaggle.com/)
 
 ### 🌿 3. Intercropping Recommendation  
-Suggests optimal crop combinations for sustainable farming.  
-**Dataset:** *AI-generated synthetic data* (for academic and demonstration purposes)
+Suggests optimal crop combinations for sustainable and profitable farming.  
+**Dataset:** *AI-generated synthetic data* (created for project purposes)
 
 ### 💬 4. FarmChat (Chatbot)  
-An interactive chatbot that assists farmers with queries and agricultural advice in real-time.
+An interactive chatbot that provides real-time agricultural assistance to farmers.
 
 ### 👨‍🌾 5. FarmCom (Farmer Community)  
-A community-driven forum where farmers can share knowledge, discuss issues, and learn from one another.
+A community-driven forum for farmers to exchange ideas and share experiences.
 
 ---
 
@@ -52,59 +51,18 @@ A community-driven forum where farmers can share knowledge, discuss issues, and 
 | Layer | Technologies Used |
 |:--|:--|
 | **Frontend** | HTML, CSS, Bootstrap |
-| **Backend** | Django / Flask |
+| **Backend** | Flask |
 | **Machine Learning** | Random Forest, Scikit-learn, Pandas, NumPy |
+| **Database** | SQL |
 | **APIs** | Google Maps, OpenWeatherMap, WeatherStack |
-| **Database** | SQLite / MySQL |
-
----
-
-## 🧠 Datasets
-
-| Module | Source | Description |
-|:--|:--|:--|
-| Crop Recommendation | Kaggle | Crop–soil–climate dataset |
-| Crop Yield Prediction | Kaggle | Crop yield dataset (soil, climate, output) |
-| Intercropping Recommendation | Synthetic | AI-generated dataset for project demonstration |
 
 ---
 
 ## 💻 How to Run Each Module
 
-> ⚠️ **Before running any module**, ensure you have Python 3.7+ installed. For FarmChat, install Node.js and npm.
+> ⚠️ Ensure you have **Python 3.7+** installed. For FarmChat, install **Node.js and npm**.
 
-### 1️⃣ Crop Recommendation
+### 🧩 Crop Recommendation
 ```bash
-cd crop_recommendation
 pip install -r requirements.txt
 python main.py
-
-### 1️⃣ Crop Recommendation
-```bash
-cd crop_recommendation
-pip install -r requirements.txt
-python main.py
-
-
-3️⃣ Intercropping Recommendation
-
-cd intercropping-recommendation
-pip install -r requirements.txt
-python app.py
-
-
-4️⃣ FarmChat - AI Assistant
-
-cd farmchat
-npm install
-npm run dev
-
-
-5️⃣ FarmCom - Farmer Community
-
-cd farmcom
-pip install -r requirements.txt
-python app.py
-
-
-
