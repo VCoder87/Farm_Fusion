@@ -64,28 +64,28 @@ A dedicated community where farmers can share knowledge, experiences, and discus
 > ⚠️ Ensure you have **Python 3.7+** installed. For FarmChat, you’ll need **Node.js and npm**.
 
 1️⃣  Crop Recommendation <br>
-     pip install -r requirements.txt <br>
-     python main.py
+    &nbsp;&nbsp;&nbsp;&nbsp; pip install -r requirements.txt <br>
+     &nbsp;&nbsp;&nbsp;&nbsp;python main.py
 
 2️⃣ Crop Yield Prediction <br>
     &nbsp;&nbsp;&nbsp;&nbsp;cd crop-yield-prediction <br>
-    pip install -r requirements.txt <br>
-    python loadandtest.py <br>
+   &nbsp;&nbsp;&nbsp;&nbsp; pip install -r requirements.txt <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;python loadandtest.py <br>
 
 3️⃣ Intercropping Recommendation <br>
-    cd intercropping-recommendation <br>
-    pip install -r requirements.txt <br>
-    python app.py <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;cd intercropping-recommendation <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;pip install -r requirements.txt <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;python app.py <br>
 
 4️⃣ FarmChat - AI Assistant <br>
-    cd farmchat <br>
-    npm install <br>
-    npm run dev <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;cd farmchat <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;npm install <br>
+   &nbsp;&nbsp;&nbsp;&nbsp; npm run dev <br>
 
 5️⃣ FarmCom - Farmer Community <br>
-    cd farmcom <br>
-    pip install -r requirements.txt <br>
-    python app.py <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;cd farmcom <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;pip install -r requirements.txt <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;python app.py <br>
 
 ✨ **Key Features**
 
