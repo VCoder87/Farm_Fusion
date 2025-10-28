@@ -22,7 +22,7 @@
 
 It combines **Machine Learning**, **Flask-based backend systems**, and **interactive web interfaces** to provide multiple agricultural insights — from crop selection to yield forecasting and community collaboration.
 
-Demo Video Link- https://drive.google.com/file/d/1H5kpuqhf3K2bvlzmx3ynILMLe0P-BF8U/view?usp=sharing
+🎥 **Demo Video:** [Watch here](https://drive.google.com/file/d/1H5kpuqhf3K2bvlzmx3ynILMLe0P-BF8U/view?usp=sharing)
 ---
 
 ## 🚀 Modules Overview
